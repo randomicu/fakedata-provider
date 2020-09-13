@@ -1,16 +1,18 @@
 #!/usr/local/bin python
-
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
+from fastapi import Depends
 from mimesis import Person
 
 from app.middlewares import verify_mimesis_locales
 from app.models.person import PersonSchema
-from app.providers.person import get_person_gender, get_additional_data, get_data
+from app.providers.person import get_additional_data
+from app.providers.person import get_data
+from app.providers.person import get_person_gender
 
 router = APIRouter()
 
 
-@router.get("/{lang}/person",
+@router.get('/{lang}/person',
             dependencies=[Depends(verify_mimesis_locales)],
             response_model=PersonSchema,
             response_model_exclude_none=True)
