@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from typing import Union
+from typing import Optional
 
 from pydantic import BaseModel
 
@@ -34,3 +34,9 @@ class PersonSchema(BaseModel):
     weight: int
     work_experience: int
     worldview: str
+    patronymic: Optional[str] = None
+    inn: Optional[str] = None
+    kpp: Optional[str] = None
+    bic: Optional[str] = None
+    ogrn: Optional[str] = None
+    passport: Optional[str] = None
