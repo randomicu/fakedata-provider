@@ -1,39 +1,85 @@
 #!/usr/bin/env python
-
 from requests import Response
 
 
-def test_person_router(client):
+def test_en_person_router(client):
     response: Response = client.get("/v1/en/person")
+    response_structure = {
+        "academic_degree": "",
+        "age": "",
+        "avatar": "",
+        "blood_type": "",
+        "email": "",
+        "first_name": "",
+        "full_name": "",
+        "gender": "",
+        "height": "",
+        "identifier": "",
+        "language": "",
+        "last_name": "",
+        "name": "",
+        "nationality": "",
+        "occupation": "",
+        "password": "",
+        "political_views": "",
+        "sexual_orientation": "",
+        "social_media_profile": "",
+        "surname": "",
+        "telephone": "",
+        "title": "",
+        "university": "",
+        "username": "",
+        "views_on": "",
+        "weight": "",
+        "worldview": "",
+        "work_experience": "",
+    }
+
     assert response.status_code == 200
-    assert response.json()["academic_degree"]
-    assert response.json()["age"]
-    assert response.json()["avatar"]
-    assert response.json()["blood_type"]
-    assert response.json()["email"]
-    assert response.json()["first_name"]
-    assert response.json()["full_name"]
-    assert response.json()["gender"]
-    assert response.json()["height"]
-    assert response.json()["identifier"]
-    assert response.json()["language"]
-    assert response.json()["last_name"]
-    assert response.json()["name"]
-    assert response.json()["nationality"]
-    assert response.json()["occupation"]
-    assert response.json()["password"]
-    assert response.json()["political_views"]
-    assert response.json()["sexual_orientation"]
-    assert response.json()["social_media_profile"]
-    assert response.json()["surname"]
-    assert response.json()["telephone"]
-    assert response.json()["title"]
-    assert response.json()["university"]
-    assert response.json()["username"]
-    assert response.json()["views_on"]
-    assert response.json()["weight"]
-    assert response.json()["worldview"]
-    assert "work_experience" in response.json()
+    assert response_structure.keys() == response.json().keys()
+
+
+def test_ru_person_router(client):
+    response: Response = client.get("/v1/ru/person")
+    response_structure = {
+        "academic_degree": "",
+        "age": "",
+        "avatar": "",
+        "blood_type": "",
+        "email": "",
+        "first_name": "",
+        "full_name": "",
+        "gender": "",
+        "height": "",
+        "identifier": "",
+        "language": "",
+        "last_name": "",
+        "name": "",
+        "nationality": "",
+        "occupation": "",
+        "password": "",
+        "political_views": "",
+        "sexual_orientation": "",
+        "social_media_profile": "",
+        "surname": "",
+        "telephone": "",
+        "title": "",
+        "university": "",
+        "username": "",
+        "views_on": "",
+        "weight": "",
+        "worldview": "",
+        "work_experience": "",
+        "patronymic": "",
+        "inn": "",
+        "kpp": "",
+        "bic": "",
+        "ogrn": "",
+        "passport": ""
+    }
+
+    assert response.status_code == 200
+    assert response_structure.keys() == response.json().keys()
 
 
 def test_incorrect_locale(client):

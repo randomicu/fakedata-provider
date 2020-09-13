@@ -8,24 +8,52 @@ EN_LOCALE_COUNTRY_CODE = "us"
 RU_LOCALE_COUNTRY_CODE = "ru"
 
 
-def test_address_router(client):
+def test_en_address_router(client):
     response: Response = client.get("/v1/en/address")
+    response_structure = {
+        "address": "",
+        "calling_code": "",
+        "city": "",
+        "continent": "",
+        "coordinates": "",
+        "country": "",
+        "country_code": get_country_code(language="en") == EN_LOCALE_COUNTRY_CODE,
+        "latitude": "",
+        "longitude": "",
+        "postal_code": "",
+        "state": "",
+        "street_name": "",
+        "street_number": "",
+        "street_suffix": "",
+        "zip_code": "",
+    }
+
     assert response.status_code == 200
-    assert response.json()["address"]
-    assert response.json()["calling_code"]
-    assert response.json()["city"]
-    assert response.json()["continent"]
-    assert response.json()["coordinates"]
-    assert response.json()["country"]
-    assert response.json()["country_code"] == get_country_code(language="en") == EN_LOCALE_COUNTRY_CODE
-    assert response.json()["latitude"]
-    assert response.json()["longitude"]
-    assert response.json()["postal_code"]
-    assert response.json()["state"]
-    assert response.json()["street_name"]
-    assert response.json()["street_number"]
-    assert response.json()["street_suffix"]
-    assert response.json()["zip_code"]
+    assert response_structure.keys() == response.json().keys()
+
+
+def test_ru_address_router(client):
+    response: Response = client.get("/v1/ru/address")
+    response_structure = {
+        "address": "",
+        "calling_code": "",
+        "city": "",
+        "continent": "",
+        "coordinates": "",
+        "country": "",
+        "country_code": get_country_code(language="ru") == RU_LOCALE_COUNTRY_CODE,
+        "latitude": "",
+        "longitude": "",
+        "postal_code": "",
+        "state": "",
+        "street_name": "",
+        "street_number": "",
+        "street_suffix": "",
+        "zip_code": "",
+    }
+
+    assert response.status_code == 200
+    assert response_structure.keys() == response.json().keys()
 
 
 def test_incorrect_locale(client):

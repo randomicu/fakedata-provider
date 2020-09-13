@@ -7,5 +7,5 @@ from app.main import app
 
 
 @pytest.fixture(scope="module")
-def client():
+def client() -> TestClient:
     yield TestClient(app)
