@@ -1,6 +1,6 @@
 #!/usr/bin/env python
-
-from fastapi import Depends, APIRouter
+from fastapi import APIRouter
+from fastapi import Depends
 from mimesis import Address
 
 from app.middlewares import verify_mimesis_locales
@@ -10,7 +10,7 @@ from app.providers.address import get_data
 router = APIRouter()
 
 
-@router.get("/{lang}/address", dependencies=[Depends(verify_mimesis_locales)])
+@router.get('/{lang}/address', dependencies=[Depends(verify_mimesis_locales)])
 async def get_address(lang: str):
     address: Address = Address(lang)
     data = get_data(address, lang)

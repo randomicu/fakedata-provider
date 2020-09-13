@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 from fastapi import HTTPException
 from starlette.requests import Request
 
@@ -12,5 +11,7 @@ async def verify_mimesis_locales(request: Request):
 
     :param request: Starlette.requests.Request object
     """
-    if request.path_params['lang'] and request.path_params['lang'] not in MIMESIS_LANGUAGES.keys():
+    if (request.path_params['lang']
+            and request.path_params['lang']) not in MIMESIS_LANGUAGES.keys():
+
         raise HTTPException(status_code=400, detail='Incorrect locale')

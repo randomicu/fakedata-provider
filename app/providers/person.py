@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 # This module is wrapper for Mimesis's gender provider
 from mimesis import Person
 from mimesis.builtins import RussiaSpecProvider
