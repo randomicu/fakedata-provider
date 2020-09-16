@@ -1,8 +1,3 @@
--- Rollback
-drop table if exists event;
-drop type event_type;
-
--- Init
 create type event_type AS enum('address', 'person');
 
 
