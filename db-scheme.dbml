@@ -1,0 +1,28 @@
+// Documentation: https://www.dbml.org/docs/
+// Online scheme: https://dbdocs.io/
+
+// Build and publish docs to dbdocs.io: dbdocs build dbschema.dbml
+// Remove docs from dbdocs.io: dbdocs remove FakedataBackend
+
+
+Project FakedataBackend {
+database_type: 'PostgreSQL'
+note: '''
+# Randomicu Fakedata Database
+
+Statistics from Fakedata backend
+'''
+}
+
+Enum event_type {
+  address [note: 'event from Address route']
+  person [note: 'event from Person route']
+}
+
+Table event as S {
+  event_id int [pk, increment]
+  created_at datetime
+  event_type event_type
+
+note: "table 'event' contains information about events from routes"
+}
