@@ -4,10 +4,9 @@ from databases import Database
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData
 
-DATABASE_URL = (os.getenv('FAKEDATA_DATABASE_URL')
-                or 'postgresql://postgres:password@172.19.0.10/postgres')
+DATABASE_URL = os.getenv('FAKEDATA_DATABASE_URL')
 
-# SQLAlchemy
+
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
 
