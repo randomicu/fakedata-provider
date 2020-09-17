@@ -423,6 +423,14 @@ postgresql_psycopg2cffi = ["psycopg2cffi"]
 pymysql = ["pymysql"]
 
 [[package]]
+category = "dev"
+description = "Non-validating SQL parser"
+name = "sqlparse"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.3.1"
+
+[[package]]
 category = "main"
 description = "The little ASGI library that shines."
 name = "starlette"
@@ -432,6 +440,17 @@ version = "0.13.6"
 
 [package.extras]
 full = ["aiofiles", "graphene", "itsdangerous", "jinja2", "python-multipart", "pyyaml", "requests", "ujson"]
+
+[[package]]
+category = "dev"
+description = "Pretty-print tabular data"
+name = "tabulate"
+optional = false
+python-versions = "*"
+version = "0.8.7"
+
+[package.extras]
+widechars = ["wcwidth"]
 
 [[package]]
 category = "dev"
@@ -507,8 +526,25 @@ optional = false
 python-versions = ">=3.6.1"
 version = "8.1"
 
+[[package]]
+category = "dev"
+description = "Database migrations with SQL"
+name = "yoyo-migrations"
+optional = false
+python-versions = "*"
+version = "7.2.0"
+
+[package.dependencies]
+sqlparse = "*"
+tabulate = "*"
+
+[package.extras]
+mysql = ["pymysql"]
+postgres = ["psycopg2"]
+pyodbc = ["pyodbc"]
+
 [metadata]
-content-hash = "5b3ffc4240a68970fbfa541296b86247b0b8375cb3289399697ae4b6d051309e"
+content-hash = "99867419de876ed29767c8ee26ebef9687cefd8f6a62340f59f0e57ca16feb7b"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -785,9 +821,17 @@ sqlalchemy = [
     {file = "SQLAlchemy-1.3.19-cp38-cp38-win_amd64.whl", hash = "sha256:83469ad15262402b0e0974e612546bc0b05f379b5aa9072ebf66d0f8fef16bea"},
     {file = "SQLAlchemy-1.3.19.tar.gz", hash = "sha256:3bba2e9fbedb0511769780fe1d63007081008c5c2d7d715e91858c94dbaa260e"},
 ]
+sqlparse = [
+    {file = "sqlparse-0.3.1-py2.py3-none-any.whl", hash = "sha256:022fb9c87b524d1f7862b3037e541f68597a730a8843245c349fc93e1643dc4e"},
+    {file = "sqlparse-0.3.1.tar.gz", hash = "sha256:e162203737712307dfe78860cc56c8da8a852ab2ee33750e33aeadf38d12c548"},
+]
 starlette = [
     {file = "starlette-0.13.6-py3-none-any.whl", hash = "sha256:bd2ffe5e37fb75d014728511f8e68ebf2c80b0fa3d04ca1479f4dc752ae31ac9"},
     {file = "starlette-0.13.6.tar.gz", hash = "sha256:ebe8ee08d9be96a3c9f31b2cb2a24dbdf845247b745664bd8a3f9bd0c977fdbc"},
+]
+tabulate = [
+    {file = "tabulate-0.8.7-py3-none-any.whl", hash = "sha256:ac64cb76d53b1231d364babcd72abbb16855adac7de6665122f97b593f1eb2ba"},
+    {file = "tabulate-0.8.7.tar.gz", hash = "sha256:db2723a20d04bcda8522165c73eea7c300eda74e0ce852d9022e0159d7895007"},
 ]
 toml = [
     {file = "toml-0.10.1-py2.py3-none-any.whl", hash = "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"},
@@ -839,4 +883,8 @@ websockets = [
     {file = "websockets-8.1-cp38-cp38-win32.whl", hash = "sha256:e898a0863421650f0bebac8ba40840fc02258ef4714cb7e1fd76b6a6354bda36"},
     {file = "websockets-8.1-cp38-cp38-win_amd64.whl", hash = "sha256:f8a7bff6e8664afc4e6c28b983845c5bc14965030e3fb98789734d416af77c4b"},
     {file = "websockets-8.1.tar.gz", hash = "sha256:5c65d2da8c6bce0fca2528f69f44b2f977e06954c8512a952222cea50dad430f"},
+]
+yoyo-migrations = [
+    {file = "yoyo-migrations-7.2.0.tar.gz", hash = "sha256:a54f6176ff6da3330be537c962235aaa9e5f7f2aae563b1c531b1cb616d80359"},
+    {file = "yoyo_migrations-7.2.0-py3-none-any.whl", hash = "sha256:d6e0e32054d81b27278f465e719e39c658e14decd62fd71d34f50e0772f80755"},
 ]
