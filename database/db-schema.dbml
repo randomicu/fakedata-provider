@@ -21,8 +21,8 @@ Enum event_type {
 
 Table event as S {
   event_id int [pk, increment]
-  created_at datetime [not null]
-  language string [not null]
+  created_at datetime [not null, default: `now()`]
+  language varchar(255) [not null]
   event_type event_type [not null]
 
 note: "table 'event' contains information about events from routes"

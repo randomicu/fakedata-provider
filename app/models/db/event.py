@@ -8,7 +8,7 @@ from sqlalchemy.dialects.postgresql import ENUM
 
 from app.db import metadata
 
-events = Table(
+event_table = Table(
     'event',
     metadata,
     Column('event_id', Integer, primary_key=True),
