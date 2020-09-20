@@ -3,7 +3,9 @@ from requests import Response
 
 
 def test_en_person_router(client):
-    response: Response = client.get('/v1/en/person')
+    with client:
+        response: Response = client.get('/v1/en/person')
+
     response_structure = {
         'academic_degree': '',
         'age': '',
@@ -40,7 +42,8 @@ def test_en_person_router(client):
 
 
 def test_ru_person_router(client):
-    response: Response = client.get('/v1/ru/person')
+    with client:
+        response: Response = client.get('/v1/ru/person')
     response_structure = {
         'academic_degree': '',
         'age': '',
@@ -83,5 +86,6 @@ def test_ru_person_router(client):
 
 
 def test_incorrect_locale(client):
-    response: Response = client.get('/v1/unknown/person')
+    with client:
+        response: Response = client.get('/v1/unknown/person')
     assert response.status_code == 400
