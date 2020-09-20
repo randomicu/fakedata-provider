@@ -1,10 +1,12 @@
-import os
-
+#!/usr/bin/env python
 from databases import Database
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData
 
-DATABASE_URL = os.getenv('FAKEDATA_DATABASE_URL')
+from app.config import Settings
+
+settings = Settings()
+DATABASE_URL = str(settings.database_url)
 
 
 engine = create_engine(DATABASE_URL)

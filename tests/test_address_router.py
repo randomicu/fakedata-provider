@@ -7,8 +7,10 @@ EN_LOCALE_COUNTRY_CODE = 'us'
 RU_LOCALE_COUNTRY_CODE = 'ru'
 
 
-def test_en_address_router(client):
-    response: Response = client.get('/v1/en/address')
+def test_en_address_router(client, setup_test_db):
+    with client:
+        response: Response = client.get('/v1/en/address')
+
     response_structure = {
         'address': '',
         'calling_code': '',
@@ -32,7 +34,9 @@ def test_en_address_router(client):
 
 
 def test_ru_address_router(client):
-    response: Response = client.get('/v1/ru/address')
+    with client:
+        response: Response = client.get('/v1/ru/address')
+
     response_structure = {
         'address': '',
         'calling_code': '',
@@ -56,10 +60,14 @@ def test_ru_address_router(client):
 
 
 def test_incorrect_locale(client):
-    response: Response = client.get('/v1/unknown/address')
+    with client:
+        response: Response = client.get('/v1/unknown/address')
+
     assert response.status_code == 400
 
 
 def test_inexistent_route(client):
-    response: Response = client.get('/v1/en/no_route')
+    with client:
+        response: Response = client.get('/v1/en/no_route')
+
     assert response.status_code == 404
