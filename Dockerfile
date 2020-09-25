@@ -2,7 +2,7 @@ FROM python:3.8.5-slim-buster
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-ENV FAKEDATA_DATABASE_URL 'postgresql://postgres:password@database/fakedata'
+ENV PYTHONPATH /usr/src/randomicu-fakedata
 
 WORKDIR /usr/src/randomicu-fakedata
 
