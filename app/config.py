@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import pathlib
+from functools import lru_cache
 
 from pydantic import BaseSettings
 from pydantic import PostgresDsn
@@ -10,4 +10,8 @@ class Settings(BaseSettings):
 
     class Config:
         env_prefix = 'FAKEDATA_'
-        env_file = str(pathlib.Path.cwd() / '.env')
+
+
+@lru_cache
+def get_app_settings() -> Settings:
+    return Settings()

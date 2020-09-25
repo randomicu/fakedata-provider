@@ -3,9 +3,10 @@ from databases import Database
 from sqlalchemy import create_engine
 from sqlalchemy import MetaData
 
-from app.config import Settings
+from app.config import get_app_settings
 
-settings = Settings()
+
+settings = get_app_settings()
 DATABASE_URL = str(settings.database_url)
 
 

@@ -12,8 +12,13 @@ from app.config import Settings
 from app.main import app
 
 
-settings = Settings(_env_file=str(pathlib.Path.cwd() / '.env.test'))
-DATABASE_URL = str(settings.database_url)
+# noinspection PyTypeChecker
+def get_test_database():
+    return Settings(database_url='postgresql://postgres:password@database:5432/fakedata_test')
+
+
+config = get_test_database()
+DATABASE_URL = str(config.database_url)
 
 
 @pytest.fixture(scope='session')
