@@ -1,0 +1,16 @@
+# Ignored directories
+.pytest_cache/
+.venv/
+
+# Ignored files
+.env.example
+.flake8
+.gitignore
+.dockerignore
+.pre-commit-config.yaml
+.versionrc
+commitlint.config.js
+docker-compose.yml
+Dockerfile
+Makefile
+README.md
