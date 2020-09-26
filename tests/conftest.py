@@ -30,14 +30,10 @@ def client() -> TestClient:
 
 @pytest.fixture(scope='session', autouse=True)
 def setup_test_db():
-    try:
-        create_database(TEST_DATABASE_URL)
-        backend = get_backend(TEST_DATABASE_URL)
-        migrations = read_migrations(str(pathlib.Path.cwd() / 'database' / 'sql'))
+    backend = get_backend(TEST_DATABASE_URL)
+    migrations = read_migrations(str(pathlib.Path.cwd() / 'database' / 'sql'))
 
-        with backend.lock():
-            backend.apply_migrations(backend.to_apply(migrations))
+    with backend.lock():
+        backend.apply_migrations(backend.to_apply(migrations))
 
-        yield TEST_DATABASE_URL
-    finally:
-        drop_database(TEST_DATABASE_URL)
+    yield TEST_DATABASE_URL
