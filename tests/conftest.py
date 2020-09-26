@@ -3,8 +3,6 @@ import os
 import pathlib
 
 import pytest
-from sqlalchemy_utils import create_database
-from sqlalchemy_utils import drop_database
 from starlette.testclient import TestClient
 from yoyo import get_backend
 from yoyo import read_migrations
