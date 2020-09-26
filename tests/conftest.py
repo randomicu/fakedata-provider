@@ -12,8 +12,12 @@ from yoyo import read_migrations
 from app.main import app
 
 
+# TODO: add settings override or add configuration app for ci environment
 def get_test_database():
-    return os.getenv('FAKEDATA_TEST_DATABASE_URL')
+    if os.environ.get('CI'):
+        return os.getenv('FAKEDATA_DATABASE_URL')
+    else:
+        return os.getenv('FAKEDATA_TEST_DATABASE_URL')
 
 
 TEST_DATABASE_URL = get_test_database()
