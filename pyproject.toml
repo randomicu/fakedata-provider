@@ -16,7 +16,7 @@ python-dotenv = "^0.14.0"
 yoyo-migrations = "^7.2.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.0.1"
+pytest = "^6.1.0"
 requests = "^2.24.0"
 pre-commit = "^2.7.1"
 flake8 = "^3.8.3"
