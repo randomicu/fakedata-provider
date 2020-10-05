@@ -148,7 +148,7 @@ description = "the modular source code checker: pep8 pyflakes and co"
 name = "flake8"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
-version = "3.8.3"
+version = "3.8.4"
 
 [package.dependencies]
 mccabe = ">=0.6.0,<0.7.0"
@@ -514,7 +514,7 @@ postgres = ["psycopg2"]
 pyodbc = ["pyodbc"]
 
 [metadata]
-content-hash = "31966dc4b07770689d05efdf7be80a5822bfe0f1c83f1dc8f1c9ad32d6a8fdf9"
+content-hash = "c2f920083dfb68a7d012f5a2a86a97e0504c0631f43be9c20a1a2033ea30f699"
 lock-version = "1.0"
 python-versions = "^3.8"
 
@@ -595,8 +595,8 @@ filelock = [
     {file = "filelock-3.0.12.tar.gz", hash = "sha256:18d82244ee114f543149c66a6e0c14e9c4f8a1044b5cdaadd0f82159d6a6ff59"},
 ]
 flake8 = [
-    {file = "flake8-3.8.3-py2.py3-none-any.whl", hash = "sha256:15e351d19611c887e482fb960eae4d44845013cc142d42896e9862f775d8cf5c"},
-    {file = "flake8-3.8.3.tar.gz", hash = "sha256:f04b9fcbac03b0a3e58c0ab3a0ecc462e023a9faf046d57794184028123aa208"},
+    {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
+    {file = "flake8-3.8.4.tar.gz", hash = "sha256:aadae8761ec651813c24be05c6f7b4680857ef6afaae4651a4eccaef97ce6c3b"},
 ]
 flake8-plugin-utils = [
     {file = "flake8-plugin-utils-1.3.1.tar.gz", hash = "sha256:6e996bc24ebe327558f24efd106f1be5f0c033c8cbb6eed815631f73d487f1c9"},
