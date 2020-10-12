@@ -1,6 +1,8 @@
 # Ignored directories
 .pytest_cache/
 .venv/
+.git/
+.github/
 
 # Ignored files
 .env.example
