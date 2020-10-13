@@ -5,7 +5,7 @@ description = "FastAPI backend for Random.icu Services"
 authors = ["pythoninja"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 mimesis = "^4.1.2"
 fastapi = "^0.61.1"
 uvicorn = "^0.12.1"
