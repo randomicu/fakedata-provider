@@ -1,8 +1,15 @@
 #!/usr/bin/env python
 # This module is wrapper for Mimesis's gender provider
+import functools
+
 from mimesis import Person
 from mimesis.builtins import RussiaSpecProvider
 from mimesis.enums import Gender
+
+
+@functools.lru_cache()
+def get_person_object(lang: str):
+    return Person(lang)
 
 
 def get_data(person: Person, gender):

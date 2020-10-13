@@ -9,6 +9,7 @@ from app.models.schema.person import PersonSchema
 from app.providers.person import get_additional_data
 from app.providers.person import get_data
 from app.providers.person import get_person_gender
+from app.providers.person import get_person_object
 
 router = APIRouter()
 
@@ -18,7 +19,7 @@ router = APIRouter()
             response_model=PersonSchema,
             response_model_exclude_none=True)
 async def get_person(lang: str):
-    person: Person = Person(lang)
+    person: Person = get_person_object(lang)
     person_gender = get_person_gender(person.gender(iso5218=True))
     data = get_data(person, person_gender)
     additional_data = get_additional_data(lang, person_gender)

@@ -1,12 +1,19 @@
 #!/usr/bin/env python
 # This module is wrapper for Mimesis's address provider
 # Map Mimesis languages like "locale": "country_code"
+import functools
+
 from mimesis import Address
 
 MIMESIS_LANGUAGES = {
     'en': 'us',
     'ru': 'ru'
 }
+
+
+@functools.lru_cache()
+def get_address_object(lang: str):
+    return Address(lang)
 
 
 def get_data(address: Address, lang: str):
