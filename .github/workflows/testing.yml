@@ -24,16 +24,15 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Add Python 3.8
+    - name: Add Python 3.9.0
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.9.0
 
     - name: Add poetry preview
       uses: Gr1N/setup-poetry@v3
       with:
-        poetry-preview: true
-
+        poetry-version: 1.1.2
 
     - name: Cache poetry's venv
       uses: actions/cache@v2
