@@ -13,18 +13,11 @@ services:
         ipv4_address: 172.19.0.10
 
   server:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    volumes:
-    - ./app:/usr/src/randomicu-fakedata/app
-    - ./deploy/start.sh:/usr/src/randomicu-fakedata/start.sh
-    - ./database:/usr/src/randomicu-fakedata/database
-    - ./yoyo.ini:/usr/src/randomicu-fakedata/yoyo.ini
+    image: ghcr.io/randomicu/fakedata-backend
     depends_on:
       - database
     ports:
-    - 8000:8000
+    - 8000:80
     env_file:
       - .env
     networks:
