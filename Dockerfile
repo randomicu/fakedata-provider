@@ -1,4 +1,4 @@
-FROM ghcr.io/randomicu/fakedata-backend-base:1.0.0 as builder-dev
+FROM ghcr.io/randomicu/fakedata-backend-base:1.0.1 as builder-dev
 
 RUN set -eux && \
     apt-get install --yes --no-install-recommends build-essential
@@ -8,7 +8,7 @@ COPY poetry.lock pyproject.toml ./
 RUN poetry install --no-root --no-dev
 
 # Development image
-FROM ghcr.io/randomicu/fakedata-backend-base:1.0.0
+FROM ghcr.io/randomicu/fakedata-backend-base:1.0.1
 
 WORKDIR $PYSETUP_PATH
 COPY --from=builder-dev $POETRY_HOME $POETRY_HOME
@@ -19,7 +19,11 @@ RUN poetry install --no-root
 
 WORKDIR /usr/src/randomicu-fakedata
 
-COPY . /usr/src/randomicu-fakedata
-COPY ./deploy/start.sh /usr/src/randomicu-fakedata/start.sh
+COPY . ./
+COPY ./deploy/start.sh ./start.sh
+
+RUN chown -R fakedata:fakedata /usr/src/randomicu-fakedata
+
+USER fakedata
 
 CMD ["/usr/src/randomicu-fakedata/start.sh"]

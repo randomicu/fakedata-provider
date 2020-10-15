@@ -13,7 +13,9 @@
 .versionrc
 commitlint.config.js
 docker-compose.yml
+docker-compose-*.yml
 Dockerfile
+Dockerfile.*
 Makefile
 README.md
 database/*.dbml

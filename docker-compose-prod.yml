@@ -13,11 +13,11 @@ services:
         ipv4_address: 172.19.0.10
 
   server:
-    image: ghcr.io/randomicu/fakedata-backend
+    image: ghcr.io/randomicu/fakedata-backend:latest
     depends_on:
       - database
     ports:
-    - 8000:80
+    - 8000:8000
     env_file:
       - .env
     networks:
