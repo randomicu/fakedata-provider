@@ -43,8 +43,8 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: |
-            ghcr.io/randomicu/fakedata-prod:latest
-            ghcr.io/randomicu/fakedata-prod:${{ steps.vars.outputs.tag }}
+            ghcr.io/randomicu/fakedata-backend:latest
+            ghcr.io/randomicu/fakedata-backend:${{ steps.vars.outputs.tag }}
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
 
