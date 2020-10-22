@@ -25,6 +25,13 @@ async def get_person(lang: str):
     additional_data = get_additional_data(lang, person_gender)
 
     if additional_data:
+        if additional_data.get('patronymic'):
+            patronymic = additional_data.get('patronymic')
+            first_name = data['first_name']
+            last_name = data['last_name']
+
+            data['full_name'] = f'{last_name} {first_name} {patronymic}'
+
         data.update(additional_data)
 
     await send_event(event_type='person', language=lang)
