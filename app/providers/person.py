@@ -13,36 +13,28 @@ def get_person_object(lang: str):
 
 
 def get_data(person: Person, gender):
+    first_name = person.first_name(gender=gender)
+    last_name = person.last_name(gender=gender)
+
     return {
-        'gender': str(gender.value).capitalize(),
-        'academic_degree': person.academic_degree(),
         'age': person.age(),
-        'avatar': person.avatar(),
-        'blood_type': person.blood_type(),
         'email': person.email(),
-        'name': person.name(gender=gender),
-        'surname': person.surname(gender=gender),
-        'first_name': person.first_name(gender=gender),
-        'last_name': person.last_name(gender=gender),
-        'full_name': person.full_name(gender=gender),
+        'first_name': first_name,
+        'full_name': f'{first_name} {last_name}',
+        'gender': str(gender.value).capitalize(),
         'height': person.height(),
         'identifier': person.identifier(),
-        'language': person.language(),
-        'person_name': person.name(gender=gender),
+        'last_name': last_name,
         'nationality': person.nationality(gender=gender),
         'occupation': person.occupation(),
         'password': person.password(),
         'political_views': person.political_views(),
-        'sexual_orientation': person.sexual_orientation(),
-        'social_media_profile': person.social_media_profile(),
         'telephone': person.telephone(),
         'title': person.title(gender=gender),
         'university': person.university(),
         'username': person.username(),
-        'views_on': person.views_on(),
         'weight': person.weight(),
         'work_experience': person.work_experience(),
-        'worldview': person.worldview()
     }
 
 
