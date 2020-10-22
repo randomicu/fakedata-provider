@@ -12,6 +12,11 @@ def get_person_object(lang: str):
     return Person(lang)
 
 
+@functools.lru_cache()
+def get_ru_special_fields():
+    return RussiaSpecProvider()
+
+
 def get_data(person: Person, gender):
     first_name = person.first_name(gender=gender)
     last_name = person.last_name(gender=gender)
@@ -40,7 +45,7 @@ def get_data(person: Person, gender):
 
 def get_additional_data(lang: str, gender):
     if lang == 'ru':
-        ru = RussiaSpecProvider()
+        ru = get_ru_special_fields()
         additional_data = {
             'patronymic': ru.patronymic(gender=gender),
             'inn': ru.inn(),
