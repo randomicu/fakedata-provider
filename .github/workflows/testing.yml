@@ -24,6 +24,13 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Login to GHCR
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.CR_PAT }}
+
     - name: Add Python 3.9.0
       uses: actions/setup-python@v2
       with:
@@ -56,4 +63,5 @@ jobs:
       env:
         FAKEDATA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fakedata
       run: |
+        docker run --network host --rm --env "FAKEDATA_DATABASE_URL=$FAKEDATA_DATABASE_URL" ghcr.io/randomicu/fakedata-database:0.0.1
         PYTHONPATH=$(pwd) poetry run pytest -vvv --cov .
