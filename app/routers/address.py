@@ -3,6 +3,7 @@ from fastapi import APIRouter
 from fastapi import Depends
 from mimesis import Address
 
+from app.enums import EventType
 from app.helpers.send_event import send_event
 from app.middlewares import verify_mimesis_locales
 from app.models.schema.address import AddressSchema
@@ -18,6 +19,6 @@ async def get_address(lang: str):
     address: Address = get_address_object(lang)
     data = get_data(address, lang)
 
-    await send_event(event_type='address', language=lang)
+    await send_event(event_type=EventType.address, language=lang)
 
     return AddressSchema(**data)
