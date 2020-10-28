@@ -59,9 +59,9 @@ jobs:
       run: poetry add --dev pytest-cov && poetry install --no-root
       if: steps.cache.outputs.cache-hit != 'true'
 
-    - name: Run pytest
+    - name: Run db migrations and pytest
       env:
         FAKEDATA_DATABASE_URL: postgresql://postgres:postgres@localhost:5432/fakedata
       run: |
-        docker run --network host --rm --env "FAKEDATA_DATABASE_URL=$FAKEDATA_DATABASE_URL" ghcr.io/randomicu/fakedata-database:0.0.1
+        docker run --network host --rm --env "FAKEDATA_DATABASE_URL=$FAKEDATA_DATABASE_URL" ghcr.io/randomicu/fakedata-database:latest
         PYTHONPATH=$(pwd) poetry run pytest -vvv --cov .
