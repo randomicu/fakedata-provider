@@ -1,6 +1,16 @@
 version: "3"
 
 services:
+  migration:
+    image: ghcr.io/randomicu/fakedata-database:0.0.2
+    env_file:
+      - .env
+    depends_on:
+      - database
+    networks:
+      containers:
+        ipv4_address: 172.19.0.99
+
   database:
     image: library/postgres:13-alpine
     restart: on-failure
@@ -15,6 +25,7 @@ services:
   server:
     image: ghcr.io/randomicu/fakedata-backend:latest
     depends_on:
+      - migration
       - database
     ports:
     - 8000:8000
