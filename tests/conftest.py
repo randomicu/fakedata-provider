@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 import os
-import pathlib
 
 import pytest
 from starlette.testclient import TestClient
-from yoyo import get_backend
-from yoyo import read_migrations
 
 from app.main import app
 
@@ -28,10 +25,5 @@ def client() -> TestClient:
 
 @pytest.fixture(scope='session', autouse=True)
 def setup_test_db():
-    # backend = get_backend(TEST_DATABASE_URL)
-    # migrations = read_migrations(str(pathlib.Path.cwd() / 'database' / 'sql'))
-    #
-    # with backend.lock():
-    #     backend.apply_migrations(backend.to_apply(migrations))
 
     yield TEST_DATABASE_URL
