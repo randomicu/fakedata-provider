@@ -39,7 +39,7 @@ jobs:
     - name: Add poetry preview
       uses: Gr1N/setup-poetry@v4
       with:
-        poetry-version: 1.1.2
+        poetry-version: 1.1.4
 
     - name: Cache poetry's venv
       uses: actions/cache@v2.1.2
