@@ -20,7 +20,7 @@ jobs:
         fetch-depth: 2
 
     - name: Setup Python 3.9
-      uses: action/python@v2
+      uses: actions/python@v2
       with:
         python-version: 3.9
 
