@@ -7,7 +7,7 @@ authors = ["pythoninja"]
 [tool.poetry.dependencies]
 python = "^3.9"
 mimesis = "^4.1.2"
-fastapi = "^0.61.2"
+fastapi = "^0.62.0"
 uvicorn = {extras = ["standard"], version = "^0.12.3"}
 asyncpg = "^0.21.0"
 databases = {extras = ["postgresql"], version = "^0.3.2"}
