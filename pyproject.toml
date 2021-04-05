@@ -16,7 +16,7 @@ python-dotenv = "^0.15.0"
 gunicorn = "^20.0.4"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.2"
+pytest = "^6.2.3"
 requests = "^2.25.1"
 pre-commit = "^2.10.1"
 flake8 = "^3.8.4"
