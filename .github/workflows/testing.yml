@@ -36,10 +36,10 @@ jobs:
       with:
         python-version: 3.9.2
 
-    - name: Add poetry preview
+    - name: Add poetry 1.1.5
       uses: Gr1N/setup-poetry@v4
       with:
-        poetry-version: 1.1.4
+        poetry-version: 1.1.5
 
     - name: Cache poetry's venv
       uses: actions/cache@v2.1.2
