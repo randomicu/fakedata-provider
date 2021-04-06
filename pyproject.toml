@@ -18,7 +18,7 @@ gunicorn = "^20.1.0"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.3"
 requests = "^2.25.1"
-pre-commit = "^2.10.1"
+pre-commit = "^2.11.1"
 flake8 = "^3.9.0"
 flake8-pytest-style = "^1.4.1"
 
