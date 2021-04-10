@@ -46,9 +46,9 @@ jobs:
       id: cache
       with:
         path: ~/.virtualenvs
-        key: ${{ runner.os }}-poetry-1.1.5-${{ hashFiles('**/poetry.lock') }}
+        key: ${{ runner.os }}-cache-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/poetry.lock') }}
         restore-keys: |
-          ${{ runner.os }}-poetry-1.1.5-${{ hashFiles('**/poetry.lock') }}
+          ${{ runner.os }}-cache-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/poetry.lock') }}
 
     - name: Set poetry config
       run: |
